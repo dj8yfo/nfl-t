@@ -1,0 +1,12 @@
+[package]
+name = "oracle_feed_demo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+engine = { path = "../engine"}
+oracle = { path = "../oracle"}
+user_pallet = { path = "../user_pallet" }

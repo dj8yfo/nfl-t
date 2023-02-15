@@ -1,0 +1,18 @@
+[package]
+name = "user_pallet"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+engine = { path = "../engine"}
+oracle = { path = "../oracle"}
+
+md5 = "0.7.0"
+serde = { workspace = true }
+bincode = { workspace = true }
+
+console = { workspace = true }
+

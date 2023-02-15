@@ -9,11 +9,11 @@ use duct::cmd;
 
 #[derive(clap::Subcommand, Debug)]
 enum Action {
-    /// Check.
     Check,
+    RunWithAsserts,
 }
 
-/// Simple program to greet a person
+/// simple program to demonstrate oracle feed pallet
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
@@ -48,6 +48,11 @@ fn clippy() -> Result<()> {
     Ok(())
 }
 
+fn demo_with_asserts() -> Result<()> {
+    println!("{}", style("cargo engine").blue());
+    cmd!("cargo", "run", "-p", "oracle_feed_demo").run()?;
+    Ok(())
+}
 fn main() -> Result<()> {
     let args = Args::parse();
 
@@ -57,6 +62,10 @@ fn main() -> Result<()> {
             fmt()?;
             check()?;
             clippy()?;
+        }
+        Action::RunWithAsserts => {
+            switch_to_workspace_root()?;
+            demo_with_asserts()?;
         }
     }
 
